@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.denebola</groupId>
+  <artifactId>denebola-website</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <name>Denebola Website</name>
+  <description>Static marketing website for Denebola, generated with JBake.</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jbake.version>2.7.0</jbake.version>
+    <site.input>${project.basedir}/src/main/jbake</site.input>
+    <site.output>${project.build.directory}/output</site.output>
+  </properties>
+
+  <build>
+    <plugins>
+      <!--
+        Declared with explicit configuration so the generate/inline/watch goals
+        can always be run with full coordinates, e.g.:
+          mvn org.jbake:jbake-maven-plugin:2.7.0:generate
+          mvn org.jbake:jbake-maven-plugin:2.7.0:inline
+        See README.md for the full local-dev workflow.
+      -->
+      <plugin>
+        <groupId>org.jbake</groupId>
+        <artifactId>jbake-maven-plugin</artifactId>
+        <version>${jbake.version}</version>
+        <configuration>
+          <inputDirectory>${site.input}</inputDirectory>
+          <outputDirectory>${site.output}</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
